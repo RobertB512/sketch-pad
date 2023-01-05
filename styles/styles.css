@@ -3,15 +3,35 @@
   margin: 0;
   box-sizing: border-box;
 }
+html {
+  font-size: 62.5%;
+}
 body {
   height: 100vh;
+  width: 100vw;
 }
 
 .container {
   display: flex;
+  /* justify-content: center; */
   flex-wrap: wrap;
-  height: 100%;
-  
+  height: 95%;
+  width: 100%;
+}
+.changeGridBtn {
+  font-size: 1.6rem;
+  height: 5%;
+  width: 100%;
+  border: none;
+  padding: 1rem 1.5rem;
+  background-color: hsl(120, 100%, 25%);
+  color: hsl(0, 0%, 100%);
+}
+.changeGridBtn:hover {
+  background-color: hsl(120, 100%, 35%);
+}
+.changeGridBtn:active {
+  background-color: hsl(120, 100%, 25%);
 }
 .child {
   height: 6.25%;
