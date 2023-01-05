@@ -1,12 +1,14 @@
 // create a grid of 16x16 divs in a parent container (which is already in the html)
-let body = document.querySelector("body");
-let container = document.querySelector(".container");
-let child = document.createElement("div");
+let body = document.querySelector("body")
+let container = document.querySelector(".container")
 
-body?.setAttribute("style", "height: 100vh;");
-container?.setAttribute("style", "height: 100%;");
-child.setAttribute("style", "box-sizing: border-box; height: 25%; width: 25%; background-color: blue;");
+body?.setAttribute("style", "height: 100vh;")
+container?.setAttribute("style", "height: 100%; width: 100%; display: flex; flex-wrap: wrap;")
 
-container?.append(child);
-
+for (let box = 0; box < 256; box++) {
+  let child = document.createElement("div")
+  child.classList.add("child")
+  child.setAttribute("style", "border: 0.5px solid black; height: 6.25%; width: 6.25%; background-color: white;")
+  container?.appendChild(child)
+}
 
