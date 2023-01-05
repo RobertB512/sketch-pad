@@ -2,33 +2,32 @@ let body = document.querySelector("body")
 let container = document.querySelector(".container")
 
 let newGridBtn = document.createElement("button")
-newGridBtn.textContent = "New Grid"
+newGridBtn.textContent = "Build Grid"
 newGridBtn.classList.add("changeGridBtn")
-// container?.appendChild(newGridBtn)
-
 body?.prepend(newGridBtn)
 
 
 function getUserInput() {
   container.innerHTML = ""
-  let xAxis = prompt("How many cells do you want accross? Enter a whole, positive number less than or equal to 100: ")
-  let yAxis = prompt("How many cells do you want down? Enter a whole, positive number less than or equal to 100: ")
-  let rowCount = parseInt(xAxis)
-  let colCount = parseInt(yAxis)
-  if (!isNaN(rowCount) && Number.isInteger(rowCount) && rowCount > 0 && rowCount <= 100) {
-    alert("looks good")
-    console.log(`${rowCount} is ${typeof rowCount}`)
+  let xAxis = prompt("How many boxes do you want accross? Enter a whole, positive number less than or equal to 100: ")
+  let yAxis = prompt("How many boxes do you want down? Enter a whole, positive number less than or equal to 100: ")
+  let boxesPerRow = parseInt(xAxis)
+  let boxesPerCol = parseInt(yAxis)
+  if (isNaN(boxesPerRow) || !Number.isInteger(boxesPerRow) || boxesPerRow < 0 || boxesPerRow > 100) {
+    alert("invalid input")
+    return
   }
-  if (!isNaN(colCount) && Number.isInteger(colCount) && colCount > 0 && colCount <= 100) {
-    alert("looks good")
-    console.log(`${rowCount} is ${typeof rowCount}`)
+  if (isNaN(boxesPerCol) || !Number.isInteger(boxesPerCol) || boxesPerCol < 0 || boxesPerCol > 100) {
+    alert("invalid input")
+    return
   }
-  let boxCount = rowCount * colCount
-  console.log(`${rowCount} is ${typeof rowCount}`)
-  console.log(`${colCount} is ${typeof colCount}`)
 
-  let boxWith = (100 / rowCount)
-  let boxHeight = (100 / colCount)
+  let boxCount = boxesPerRow * boxesPerCol
+  // console.log(`${boxesPerRow} is ${typeof boxesPerRow}`)
+  // console.log(`${boxesPerCol} is ${typeof boxesPerCol}`)
+
+  let boxWith = (100 / boxesPerRow)
+  let boxHeight = (100 / boxesPerCol)
   console.log(`x: ${boxWith}`)
   console.log(`y: ${boxHeight}`)
   for (let box = 0; box < boxCount; box++) {
@@ -41,6 +40,4 @@ function getUserInput() {
 
 
 newGridBtn.addEventListener("click", getUserInput)
-
-// let boxCount = 256
 
