@@ -13,7 +13,6 @@ body {
 
 .container {
   display: flex;
-  /* justify-content: center; */
   flex-wrap: wrap;
   height: 95%;
   width: 100%;
@@ -34,11 +33,10 @@ body {
   background-color: hsl(120, 100%, 25%);
 }
 .child {
-  height: 6.25%;
-  width: 6.25%;
   border: 0.5px solid black; 
   background-color: white;
 }
-.child:hover {
+/* .child:hover {
   background-color: hsl(0, 0%, 50%);
-}
+} */
+

@@ -1,3 +1,4 @@
+// grab and create elements
 let body = document.querySelector("body")
 let container = document.querySelector(".container")
 
@@ -6,7 +7,7 @@ newGridBtn.textContent = "Build Grid"
 newGridBtn.classList.add("changeGridBtn")
 body?.prepend(newGridBtn)
 
-
+// build the grid
 function getUserInput() {
   container.innerHTML = ""
   let xAxis = prompt("How many boxes do you want accross? Enter a whole, positive number less than or equal to 100: ")
@@ -23,21 +24,28 @@ function getUserInput() {
   }
 
   let boxCount = boxesPerRow * boxesPerCol
-  // console.log(`${boxesPerRow} is ${typeof boxesPerRow}`)
-  // console.log(`${boxesPerCol} is ${typeof boxesPerCol}`)
 
   let boxWith = (100 / boxesPerRow)
   let boxHeight = (100 / boxesPerCol)
-  console.log(`x: ${boxWith}`)
-  console.log(`y: ${boxHeight}`)
+  // console.log(`x: ${boxWith}`)
+  // console.log(`y: ${boxHeight}`)
   for (let box = 0; box < boxCount; box++) {
     let child = document.createElement("div")
     child.classList.add("child")
     child.setAttribute("style", `width: ${boxWith}%; height: ${boxHeight}%`)
     container?.appendChild(child)
+
+    child.addEventListener("mousedown", () => {
+      ""
+    })
+    child.addEventListener("mouseover", () => {
+      let rgb1 = Math.floor(Math.random() * 256)
+      let rgb2 = Math.floor(Math.random() * 256)
+      let rgb3 = Math.floor(Math.random() * 256)
+      child.style.backgroundColor = `rgb(${rgb1}, ${rgb2}, ${rgb3})`
+    })
   }
 }
-
-
 newGridBtn.addEventListener("click", getUserInput)
+
 
